@@ -37,17 +37,21 @@ bot.on("voice", async (ctx) => {
   };
 
   // Detects speech in the audio file
-  try {
-    const [response] = await gcpSpeechClient.recognize(request);
-    const transcription = response.results
-      .map((result) => result.alternatives[0].transcript)
-      .join("\n");
-    return ctx.reply(`Contenuto del messaggio 🎙:\n${transcription}`);
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+  const [response] = await gcpSpeechClient.recognize(request);
+  const transcription = response.results
+    .map((result) => result.alternatives[0].transcript)
+    .join("\n");
+  return ctx.reply(`Contenuto del messaggio 🎙:\n${transcription}`);
 });
+
+bot.catch((err, ctx) => {
+  console.error("[Bot] Error", err);
+  return ctx.reply(
+    `Si è verificato un errore mentre elaboravo ${ctx.updateType}`,
+    err
+  );
+});
+
 bot.launch();
 
 // Enable graceful stop
