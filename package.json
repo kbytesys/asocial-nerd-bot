@@ -6,6 +6,7 @@
     "@google-cloud/firestore": "^6.4.1",
     "@google-cloud/functions-framework": "^3.0.0",
     "@google-cloud/speech": "^5.1.0",
+    "@google-cloud/vision": "^3.0.1",
     "node-fetch": "^2.6.7",
     "telegraf": "^4.10.0"
   },
