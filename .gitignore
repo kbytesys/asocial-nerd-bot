@@ -2,3 +2,4 @@
 .idea
 node_modules/
 google-cloud-service-key.json
+.env.yaml
