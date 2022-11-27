@@ -5,11 +5,15 @@ steps:
       - functions
       - deploy
       - asocial-nerd-bot
-      - --entry-point=asocialNerdBot \
-      - --gen2 \
-      - --region=europe-west2 \
-      - --runtime nodejs16 \
-      - --trigger-http \
-      - --set-env-vars=[TELEGRAM_BOT_AUTHENTICATION_TOKEN=$TELEGRAM_BOT_AUTHENTICATION_TOKEN, PUBLIC_ENDPOINT=$PUBLIC_ENDPOINT] \
-      - --ingress-settings all \
+      - --entry-point=asocialNerdBot
+      - --gen2
+      - --region=europe-west2
+      - --runtime=nodejs16
+      - --trigger-http
+      - --set-env-vars=TELEGRAM_BOT_AUTHENTICATION_TOKEN=${_TELEGRAM_BOT_AUTHENTICATION_TOKEN}
+      - --set-env-vars=PUBLIC_ENDPOINT=${_PUBLIC_ENDPOINT}
+      - --ingress-settings=all
       - --allow-unauthenticated
+substitutions:
+  _TELEGRAM_BOT_AUTHENTICATION_TOKEN: unused
+  _PUBLIC_ENDPOINT: unused
