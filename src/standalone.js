@@ -1,7 +1,7 @@
 const { Telegraf } = require("telegraf");
 const { initBot } = require("./bot-initializer");
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf(process.env.TELEGRAM_BOT_AUTHENTICATION_TOKEN);
 
 initBot(bot);
 
