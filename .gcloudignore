@@ -16,6 +16,7 @@ deploy.sh
 .nvmrc
 .prettier*
 .env.yaml-ignore
+cloudbuild.yaml
 
 node_modules
 #!include:.gitignore
